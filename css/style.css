@@ -1,0 +1,268 @@
+
+/*   Name: Yusuf Yildiz
+     Email: GUI I
+     Date: December 6, 2016
+     Assignment No. 9
+     A simple scrabble one line game.
+     */
+
+/* importing the ubuntu font from google */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+/* using flex display on my body to align items */
+body {
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* making sure that the body takes the entire page
+  so that my content can be centered vertically  */
+  height: 100vh;
+  width: 100vw;
+  background: #242F40;
+}
+
+.container p {
+  text-align: center;
+  /* make the characters uppercase */
+  text-transform: uppercase;
+  color: #DF2935;
+  font-weight: bold;
+  font-size: 4em;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  /* make a border around the characters */
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  /* stylistic rotation */
+  transform: rotate(-4deg);
+  padding: 40px;
+}
+
+/* This animation is used for the bottom part where I have my name
+    it creates a slideout type animation on hover */
+@keyframes slideout {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+.contact {
+  margin-top: 20px;
+  width: 960px;
+  text-align: right;
+}
+/* This is the contacts... */
+.contact a {
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  position: relative;
+}
+
+/* used for the bottom line */
+.contact a:before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 0px;
+  background: white;
+  bottom: -4px;
+}
+
+.counters {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 auto
+
+}
+
+/* animates the before element on hover*/
+.contact a:hover:before {
+  animation: slideout 250ms forwards;
+}
+
+/* giving the score a nice border */
+#score {
+  font-size: 2.6em;
+  width: 820px;
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #DF2935;
+  text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  text-transform: uppercase;
+}
+/* giving the tiles left a nice border */
+#tilesLeft {
+  font-size: 2.6em;
+  width: 820px;
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #DF2935;
+  text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  text-transform: uppercase;
+}
+
+/* this is the buttons container */
+.btn {
+  width: 820px;
+  height: 30px;
+  margin: 0 auto;
+  position: relative;
+}
+
+button {
+  margin: 0 auto;
+  width: 130px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  font-size: 1.1em;
+  background: #242F40;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px #E6E8E6;
+}
+/* hover effect */
+button:hover {
+  box-shadow: 0px 2px 3px #E6E8E6;
+}
+/* make the second button aligned correctly */
+button:nth-child(2) {
+  right: 300px;
+  width: 150px;
+}
+
+button:nth-child(3) {
+  right: 140px;
+  width: 150px;
+}
+
+.container {
+  /* setting a wooden background to the container */
+  background: url(../img/woodBackground.jpg);
+  padding: 20px;
+  width: 920px;
+  margin: 0 auto;
+  border: 3px solid #DF2935;
+  border-radius: 5px;
+}
+
+.board {
+  width: 800px;
+  height: 80px;
+  margin: 0 auto;
+  background: #242F40;
+  border: 2px solid #E6E8E6;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.rack {
+  height: 80px;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 10px;
+  background: #242F40;
+  border: 2px solid #E6E8E6;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* creating the tile styling  */
+.tile {
+  width: 114px;
+  height: 100%;
+  /* setting the given tile background image */
+  background-image: url(../img/tile.jpg);
+  /* we want it to not repeat and cover the entire size*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* so that they are next to each other */
+  display: inline-block;
+  margin: 2px;
+}
+
+.rack-tile {
+  /* the rack tiles are pretty much the same thing as the tiles. */
+  width: 114px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../img/tile.jpg);
+  margin: 2px;
+  font-size: 1.5em;
+  position: relative;
+  /* used to make them look clickable */
+  cursor: pointer;
+}
+/* the tile value is at the bottom right so we need to position absolute */
+.rack-tile .tile-value {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-size: .5em;
+}
+/* didnt use these because I didn't do the full board implementation */
+.triple-word {
+  background: linear-gradient(rgba(245, 96, 74, 0.8), rgba(245, 96, 74, 0.8)), url(../img/tile.jpg);
+}
+
+.triple-letter {
+  background: linear-gradient(rgba(63, 154, 176, 0.8), rgba(63, 154, 176, 0.8)), url(../img/tile.jpg);
+}
+/* this tile has a different style to it from the rest*/
+.double-word {
+  background: linear-gradient(rgba(248, 183, 165, 0.5), rgba(248, 183, 165, 0.5)), url(../img/tile.jpg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  text-align: center;
+  color: #4d4d4d;
+  border-radius: 3px;
+  position: relative;
+}
+/* setting up the two arrow like things on the double word tiles */
+.double-word:before, .double-word:after {
+  height: 0px;
+  width: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid rgba(248, 183, 165, 0.8);
+  border-left: 10px solid rgba(248, 183, 165, 0.8);
+  position: absolute;
+  z-index: 1;
+  content: "";
+}
+/* need to position the arrows correctly */
+.double-word:before {
+  left: -10px;
+  top: calc(50% - 10px);
+  border-left: none;
+}
+
+.double-word:after {
+  right: -10px;
+  top: calc(50% - 10px);
+  border-right: none;
+}
+
+.double-letter {
+  background: linear-gradient(rgba(189, 214, 210, 0.8), rgba(189, 214, 210, 0.8)), url(../img/tile.jpg);
+}

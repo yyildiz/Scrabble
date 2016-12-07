@@ -1,0 +1,196 @@
+
+$board-background: #C6C0A6
+$triple-word: #F5604A
+$triple-letter: #3F9AB0
+$double-letter: #BDD6D2
+$double-word: #F8B7A5
+$red: #DF2935
+$black: #080708
+$white: #E6E8E6
+$grey: #242F40
+$tile-background: url(../img/tile.jpg)
+$wood-background: url(../img/woodBackground.jpg)
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu')
+
+body
+    font-family: 'Ubuntu', sans-serif
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    height: 100vh
+    width: 100vw
+    background: $grey
+
+.container
+    p
+        text-align: center
+        text-transform: uppercase
+        color: $red
+        font-weight: bold
+        font-size: 4em
+        margin-top: -10px
+        margin-bottom: 5px
+        text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff
+        transform: rotate(-4deg)
+        padding: 40px
+
+
+@keyframes slideout
+    0%
+        width: 0%
+        height: 1px
+    100%
+        width: 100%
+        height: 1px
+
+.contact
+    margin-top: 20px
+    width: 960px
+    text-align: right
+    a
+        color: white
+        font-size: 1.2em
+        text-decoration: none
+        position: relative
+        &:before
+            content: ""
+            position: absolute
+            height: 1px
+            width: 0px
+            background: white
+            bottom: -4px
+        &:hover
+            &:before
+                animation: slideout 250ms forwards
+
+#score
+    font-size: 2.6em
+    width: 820px
+    margin: 0 auto 35px
+    text-align: center
+    color: $red
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff
+    text-transform: uppercase
+
+
+.btn
+    width: 820px
+    height: 30px
+    margin: 0 auto
+    position: relative
+
+button
+    margin: 0 auto
+    width: 130px
+    height: 30px
+    position: absolute
+    right: 0
+    font-size: 1.1em
+    background: $grey
+    color: white
+    border: 1px solid white
+    cursor: pointer
+    box-shadow: 0px 1px 3px $white
+    &:hover
+        box-shadow: 0px 2px 3px $white
+    &:nth-child(2)
+        right: 140px
+        width: 150px
+
+.container
+    background: $wood-background
+    padding: 20px
+    width: 920px
+    margin: 0 auto
+    border: 3px solid $red
+    border-radius: 5px
+
+.board
+    width: 800px
+    height: 80px
+    margin: 0 auto
+    background: $grey
+    border: 2px solid $white
+    padding: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 5px
+
+.rack
+    height: 80px
+    width: 100%
+    max-width: 800px
+    margin: 30px auto
+    padding: 10px
+    background: $grey
+    border: 2px solid $white
+    border-radius: 5px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.tile
+    width: 114px
+    height: 100%
+    background-image: $tile-background
+    background-repeat: no-repeat
+    background-size: cover
+    display: inline-block
+    margin: 2px
+
+.rack-tile
+    width: 114px
+    height: 100%
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    background: $tile-background
+    margin: 2px
+    font-size: 1.5em
+    position: relative
+    cursor: pointer
+    .tile-value
+        position: absolute
+        bottom: 3px
+        right: 5px
+        font-size: .5em
+
+.triple-word
+    background: linear-gradient(rgba($triple-word, .8), rgba($triple-word, .8)), $tile-background
+
+.triple-letter
+    background: linear-gradient(rgba($triple-letter, .8), rgba($triple-letter, .8)), $tile-background
+
+.double-word
+    background: linear-gradient(rgba($double-word, .5), rgba($double-word, .5)), $tile-background
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 1em
+    text-align: center
+    color: lighten(black, 30%)
+    border-radius: 3px
+    position: relative
+    &:before, &:after
+        height: 0px
+        width: 0px
+        border-top: 10px solid transparent
+        border-bottom: 10px solid transparent
+        border-right: 10px solid rgba($double-word, .8)
+        border-left: 10px solid rgba($double-word, .8)
+        position: absolute
+        z-index: 1
+        content: ""
+    &:before
+        left: -10px
+        top: calc(50% - 10px)
+        border-left: none
+    &:after
+        right: -10px
+        top: calc(50% - 10px)
+        border-right: none
+.double-letter
+    background: linear-gradient(rgba($double-letter, .8), rgba($double-letter, .8)), $tile-background

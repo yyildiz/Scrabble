@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+        File: GUI 1 Assignment 9
+        Name: Yusuf Yildiz
+        Class: GUI Programming 1
+        Email: yusuf_yildiz@student.uml.edu
+        Simple scrabble game that uses one line.
+    -->
+
+<html>
+  <head>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container">
+
+      <p>Scrabble</p>
+
+      <!-- board which takes all of the tiles -->
+      <div class="board"></div>
+
+      <!-- everything is created dynamically so the rack doesn't have anything-->
+      <div class="rack"></div>
+
+      <!-- area where the user's score is displayed. -->
+      <div class="counters">
+          <div id="score"></div>
+          <div id="tilesLeft"></div>
+      </div>
+
+      <!-- container for the buttons -->
+      <div class="btn">
+
+        <!-- allows to get more tiles -->
+        <button id="reset">New Tiles</button>
+
+        <!-- restarts an entirely new game -->
+        <button id="restartGame">New Game</button>
+
+        <button id="submitWord">Submit Word</button>
+      </div>
+    </div>
+    <div class="contact"> <a href="https://www.linkedin.com/in/yoyildiz">Yusuf Yildiz</a></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
